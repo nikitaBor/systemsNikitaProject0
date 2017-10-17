@@ -1,5 +1,5 @@
-all: main.o tunez.o
-	gcc main.o tunez.o -o test_tunez
+all: A.o tunez.o
+	gcc A.o tunez.o -o test_tunez
 
 A.o: A.c tunez.h
 	gcc -c A.c
