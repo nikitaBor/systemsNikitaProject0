@@ -89,9 +89,18 @@ struct song_node * search_list_name(struct song_node *n, char findName[], char f
 //returns first node with findArtist or null if it isn't in the list
 struct song_node * search_list_artist(struct song_node *n, char findArtist[]){
     while(n && strcmp(findArtist,n->artist)){ //run until end of list or artist match
-        n = n->next;
+      n = n->next;
     }
     return n;
+}
+
+//print_list_artist
+//prints all songs by findArtist
+void print_list_artist(struct song_node *n; char findArtist[]){
+  while(n){
+    if(!strcmp(findArtist,n->artist)){ print_node(n); }
+    n = n->next;
+  }
 }
 
 //search_list_random

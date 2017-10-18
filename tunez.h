@@ -11,6 +11,7 @@ struct song_node * insert_front(struct song_node *, char[], char[]);
 struct song_node * insert_alph(struct song_node *, char[], char[]);
 struct song_node * search_list_name(struct song_node *, char[], char[]);
 struct song_node * search_list_artist(struct song_node *, char[]);
+void print_list_artist(struct song_node *, char[]);
 struct song_node * search_list_random(struct song_node *);
 struct song_node * delete_list_song(struct song_node *, char[], char[]);
 void free_list(struct song_node *);
