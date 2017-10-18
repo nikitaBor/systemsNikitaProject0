@@ -18,7 +18,7 @@ void print_list(struct song_node *n){
 //print_node
 //prints the song_nodes inside the list
 void print_node(struct song_node *n){
-    if(!n){printf("NO NODE"); return;}
+    if(!n){printf("NO NODE\n"); return;}
     printf("printing node : '%s' by '%s' \n", n->name, n->artist);
 }
 
