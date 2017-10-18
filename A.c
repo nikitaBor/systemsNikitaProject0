@@ -20,25 +20,25 @@ int main(){
     print_list(bill);
 
     printf("testing find_song_name\n");
-    printf("searching for september...(and returning list starting with it)\n");
-    print_list(search_list_name(bill,"september", "earth,wind,fire"));
-    printf("searching for NOTASONG...(and returning list starting with it)\n");
-    print_list(search_list_name(bill,"NOTASONG", "NOTANARTIST"));
+    printf("searching for september...\n");
+    print_node(search_list_name(bill,"september", "earth,wind,fire"));
+    printf("searching for NOTASONG...\n");
+    print_node(search_list_name(bill,"NOTASONG", "NOTANARTIST"));
 
     printf("testing find_song_artist\n");
-    printf("searching for songs by black keys...(and returning list starting with it)\n");
-    print_list(search_list_artist(bill,"black keys"));
-    printf("searching for songs by NOTANARTIST...(and returning list starting with it)\n");
-    print_list(search_list_artist(bill, "NOTANARTIST"));
+    printf("searching for songs by black keys...\n");
+    print_node(search_list_artist(bill,"black keys"));
+    printf("searching for songs by NOTANARTIST...\n");
+    print_node(search_list_artist(bill, "NOTANARTIST"));
 
     printf("testing find_song_random\n");
-    printf("searching for random song...(and returning list starting with it)\n");
+    printf("searching for random song...\n");
     srand(time(NULL));
-    print_list(search_list_random(bill));
+    print_node(search_list_random(bill));
     printf("searching for random song again(probably different this time)...\n");
-    print_list(search_list_random(bill));
+    print_node(search_list_random(bill));
     printf("one more time, just in case...\n");
-    print_list(search_list_random(bill));
+    print_node(search_list_random(bill));
     printf("\n");
 
     printf("removing songs (delete_list_song) at begininning, middle, end\n");

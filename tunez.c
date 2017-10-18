@@ -15,6 +15,13 @@ void print_list(struct song_node *n){
     printf("\n");
 }
 
+//print_node
+//prints the song_nodes inside the list
+void print_node(struct song_node *n){
+    if(!n){printf("NO NODE"); return;}
+    printf("printing node : '%s' by '%s' \n", n->name, n->artist);
+}
+
 //insert_front
 //inserts new song at end of n and returns pointer to beginning of list
 struct song_node * insert_front(struct song_node *n, char newName[], char newArtist[]){
