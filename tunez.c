@@ -7,7 +7,7 @@
 //print_list
 //prints the song_nodes inside the list
 void print_list(struct song_node *n){
-    printf("printing song list \n");
+    printf("printing song list : ");
     while(n){ //runs until node points to null
         printf("'%s' by '%s' | ", n->name, n->artist);
         n = n->next;
@@ -146,5 +146,6 @@ void free_list(struct song_node *n){
 
     //recursive case
     free_list(n->next);//free the rest of the list
+    printf("freeing node : '%s' by '%s'\n", n->name,n->artist);
     free(n);//frees the original pointers after others have been free
 }
