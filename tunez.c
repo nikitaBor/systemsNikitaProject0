@@ -96,7 +96,8 @@ struct song_node * search_list_artist(struct song_node *n, char findArtist[]){
 
 //print_list_artist
 //prints all songs by findArtist
-void print_list_artist(struct song_node *n; char findArtist[]){
+//does nothing if no songs by the artist found
+void print_list_artist(struct song_node *n, char findArtist[]){
   while(n){
     if(!strcmp(findArtist,n->artist)){ print_node(n); }
     n = n->next;
@@ -145,6 +146,5 @@ void free_list(struct song_node *n){
 
     //recursive case
     free_list(n->next);//free the rest of the list
-    free(n);//frees the original pointers after others have been freed
-    n=0;
+    free(n);//frees the original pointers after others have been free
 }

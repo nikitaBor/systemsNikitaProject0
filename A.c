@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tunez.h"
+#include "tunezLIB.h"
 #include <time.h>
 
 int main(){
@@ -34,16 +35,16 @@ int main(){
     printf("===================\n");
 
     printf("testing search_list_artist\n");
-    printf("searching for songs by black keys...\n");
+    printf("searching for song by black keys...\n");
     print_node(search_list_artist(bill,"black keys"));
-    printf("searching for songs by NOTANARTIST...\n");
+    printf("searching for song by NOTANARTIST...\n");
     print_node(search_list_artist(bill, "NOTANARTIST"));
     printf("===================\n");
 
     printf("testing print_list_artist\n");
     printf("printing songs by black keys...\n");
     print_list_artist(bill,"black keys");
-    printf("searching for songs by NOTANARTIST...\n");
+    printf("printing songs by NOTANARTIST...\n");
     print_list_artist(bill, "NOTANARTIST");
     printf("===================\n");
 
@@ -67,6 +68,7 @@ int main(){
     printf("===================\n\n\n\n");
 
     free_list(bill);
+    bill=0;
     ///////////////////////////////////////////////////////////////////
 
 
@@ -89,23 +91,46 @@ int main(){
    
     printf("testing search_lib_name(looking for the wolf by siames)\n");
     print_node(search_lib_name(ipod,"the wolf", "siames"));
-    printf("testing search_lib_name(looking for NOTASONG)\n");
-    print_node(search_lib_name(ipod,"NOTASONG","NOTANARTIST"));
+    printf("testing search_lib_name(looking for not_a_song)\n");
+    print_node(search_lib_name(ipod,"not_A_SONG","not_an_artist"));
     printf("===================\n");
 
     printf("testing search_lib_artist(looking for black keys)\n");
     print_node(search_lib_artist(ipod,"black keys"));
-    printf("testing search_lib_artist(looking for NOTANARTIST)\n");
-    print_node(search_lib_artist(ipod,"NOTANARTIST"));
+    printf("testing search_lib_artist(looking for not_AN_artist)\n");
+    print_node(search_lib_artist(ipod,"not_AN_artist"));
     printf("===================\n");
 
     printf("testing print_lib_letter(print 'h's contents)\n");
     print_lib_letter(ipod,'h');
+    printf("testing print_lib_letter(print 'k's nonexistent contents)\n");
+    print_lib_letter(ipod,'k');
+    printf("===================\n");
+
+    printf("testing print_lib_artist(printing songs by black keys)\n");
+    print_lib_artist(ipod,"black keys");
+    printf("testing print_lib_letter(print songs by not_an_artist)\n");
+    print_lib_artist(ipod,"not_an_artist");
     printf("===================\n");
 
     printf("testing print_lib(print entire lib)\n");
     print_lib(ipod);
     printf("===================\n");
+
+    printf("testing print_lib_random(print 5 randomly selected songs lib)\n");
+    print_lib_random(ipod, 5);
+    printf("===================\n");
+
+    printf("testing delete_lib_song\n");
+    printf("removing gold,howlin,hey jude \n");
+    delete_lib_song(ipod,"gold on the ceiling", "black keys");
+    delete_lib_song(ipod,"howlin for you", "black keys");
+    delete_lib_song(ipod,"hey jude", "beatles");
+    delete_lib_song(ipod,"hey jude", "beatles"); //to make sure that no error if it isnt there
+    print_lib(ipod);
+    printf("===================\n\n\n\n");
+
+    free_lib(ipod);
 
     return 0;
 }
