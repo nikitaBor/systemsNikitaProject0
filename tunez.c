@@ -18,7 +18,7 @@ void print_list(struct song_node *n){
 //print_node
 //prints the song_nodes inside the list
 void print_node(struct song_node *n){
-    if(!n){printf("NO NODE\n"); return;}
+    if(!n){printf("printing node : NO NODE\n"); return;}
     printf("printing node : '%s' - '%s' \n", n->artist, n->name);
 }
 
@@ -54,7 +54,9 @@ struct song_node * insert_alph(struct song_node *n, char newName[], char newArti
     }
 
     //otherwise...
-    if(strcmp(newArtist,n->artist)<0) { //newArtist is first word
+    //special case if song is the first in the list(newArtist < first artist or newArtist is the first artist and the
+    //... newName < first name
+    if(strcmp(newArtist,n->artist)<0 || (!strcmp(newArtist,n->artist) && strcmp(newName,n->name)<0)) {
         struct song_node *restOfList = n;
         n = (struct song_node *)malloc(sizeof(struct song_node)); //allocates memory for a node * and assigns it to next
         strcpy(n->name,newName);
@@ -62,7 +64,7 @@ struct song_node * insert_alph(struct song_node *n, char newName[], char newArti
         n->next = restOfList;
         return n;//in this case you would have to set bill=n since the list begins one song earlier
     }
-    //run until in correct place for artist or hit end of list
+    //run until before correct artist or hit end of list
     struct song_node *rtcpy = n;
     while (n->next && (strcmp(newArtist, n->next->artist) > 0)) {
         n = n->next;
