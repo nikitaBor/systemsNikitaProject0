@@ -62,9 +62,13 @@ struct song_node * insert_alph(struct song_node *n, char newName[], char newArti
         n->next = restOfList;
         return n;//in this case you would have to set bill=n since the list begins one song earlier
     }
-    //run until in correct place or hit end of list
+    //run until in correct place for artist or hit end of list
     struct song_node *rtcpy = n;
     while (n->next && (strcmp(newArtist, n->next->artist) > 0)) {
+        n = n->next;
+    }
+    //once artist is reached, run up to name(if multiple songs by same artist)
+    while (n->next && (strcmp(newName, n->next->name) > 0)) {
         n = n->next;
     }
     //else
