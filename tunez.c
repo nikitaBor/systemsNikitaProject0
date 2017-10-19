@@ -9,7 +9,7 @@
 void print_list(struct song_node *n){
     printf("printing song list : ");
     while(n){ //runs until node points to null
-        printf("'%s' by '%s' | ", n->name, n->artist);
+        printf("'%s' - '%s' | ", n->artist, n->name);
         n = n->next;
     }
     printf("\n");
@@ -19,7 +19,7 @@ void print_list(struct song_node *n){
 //prints the song_nodes inside the list
 void print_node(struct song_node *n){
     if(!n){printf("NO NODE\n"); return;}
-    printf("printing node : '%s' by '%s' \n", n->name, n->artist);
+    printf("printing node : '%s' - '%s' \n", n->artist, n->name);
 }
 
 //insert_front
@@ -54,7 +54,7 @@ struct song_node * insert_alph(struct song_node *n, char newName[], char newArti
     }
 
     //otherwise...
-    if(strcmp(newName,n->name)<0) { //newName isn't first word
+    if(strcmp(newArtist,n->artist)<0) { //newArtist is first word
         struct song_node *restOfList = n;
         n = (struct song_node *)malloc(sizeof(struct song_node)); //allocates memory for a node * and assigns it to next
         strcpy(n->name,newName);
@@ -64,7 +64,7 @@ struct song_node * insert_alph(struct song_node *n, char newName[], char newArti
     }
     //run until in correct place or hit end of list
     struct song_node *rtcpy = n;
-    while (n->next && (strcmp(newName, n->next->name) > 0)) {
+    while (n->next && (strcmp(newArtist, n->next->artist) > 0)) {
         n = n->next;
     }
     //else
@@ -146,6 +146,6 @@ void free_list(struct song_node *n){
 
     //recursive case
     free_list(n->next);//free the rest of the list
-    printf("freeing node : '%s' by '%s'\n", n->name,n->artist);
+    printf("freeing node : '%s' - '%s'\n", n->artist,n->name);
     free(n);//frees the original pointers after others have been free
 }
