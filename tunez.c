@@ -68,7 +68,7 @@ struct song_node * insert_alph(struct song_node *n, char newName[], char newArti
         n = n->next;
     }
     //once artist is reached, run up to name(if multiple songs by same artist)
-    while (n->next && (strcmp(newName, n->next->name) > 0)) {
+    while (n->next && (strcmp(newName, n->next->name) > 0) && !strcmp(newArtist, n->next->artist)) {
         n = n->next;
     }
     //else
