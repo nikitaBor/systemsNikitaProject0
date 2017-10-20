@@ -13,6 +13,7 @@ int main(){
     printf("===================\n");
     printf("*Project0 for Systems Level Programming\n");
     printf("*The list functions are in tunez.c and the library functions are in tunezLIB.c\n");
+    printf("*PLEASE USE ONLY LOWER CASE SONG NAMES AND ARTISTS\n");
     printf("*Made by: Nikita Borisov (nikitaBor)\n");
     printf("===================\n\n\n");
     printf("===================\n");
