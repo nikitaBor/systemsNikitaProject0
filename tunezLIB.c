@@ -4,6 +4,10 @@
 #include "tunez.h"
 #include "tunezLIB.h"
 
+//Nikita Borisov
+//Project0
+
+
 //add_song
 //inserts song into library under correct letter alphabetically 
 //return pointer to beginning of list with that song

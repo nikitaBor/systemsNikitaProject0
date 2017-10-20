@@ -4,6 +4,10 @@
 #include <time.h>
 #include "tunez.h"
 
+//Nikita Borisov
+//Project0
+
+
 //print_list
 //prints the song_nodes inside the list
 void print_list(struct song_node *n){
